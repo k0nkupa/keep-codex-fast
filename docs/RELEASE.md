@@ -47,7 +47,7 @@ For development installs from the checkout:
 brew install --HEAD ./Formula/keep-codex-fast.rb
 ```
 
-For public stable installs:
+For public stable installs, Homebrew expects a tap repo. The short command `brew tap k0nkupa/keep-codex-fast` maps to a GitHub repository named `k0nkupa/homebrew-keep-codex-fast`.
 
 1. Create GitHub release tag `v0.1.0`.
 2. Download or calculate the release tarball checksum:
@@ -59,7 +59,14 @@ For public stable installs:
    ```
 
 3. Replace the placeholder `sha256` in `Formula/keep-codex-fast.rb`.
-4. Users can install from a tap:
+4. Create or update the tap repo:
+
+   ```bash
+   gh repo create k0nkupa/homebrew-keep-codex-fast --public
+   ```
+
+5. Copy `Formula/keep-codex-fast.rb` into the tap repo as `Formula/keep-codex-fast.rb`, commit, and push.
+6. Users can install from the tap:
 
    ```bash
    brew tap k0nkupa/keep-codex-fast

@@ -46,13 +46,15 @@ During development:
 brew install --HEAD ./Formula/keep-codex-fast.rb
 ```
 
-For a public tap, publish a GitHub release, update the formula URL/SHA, then users can run:
+For public Homebrew installs, create a separate tap repository named `k0nkupa/homebrew-keep-codex-fast`, copy `Formula/keep-codex-fast.rb` into that tap, publish a GitHub release, update the formula URL/SHA, then users can run:
 
 ```bash
 brew tap k0nkupa/keep-codex-fast
 brew install keep-codex-fast
 keep-codex-fast setup
 ```
+
+Without a tap repo, users can still install directly from the formula URL or local checkout.
 
 ## Commands
 
