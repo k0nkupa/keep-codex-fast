@@ -1,0 +1,48 @@
+{
+  "name": "keep-codex-fast",
+  "version": "0.1.0",
+  "description": "Codex desktop maintenance skill, automation, and CLI for keeping local sessions, logs, config, and worktrees boring.",
+  "type": "module",
+  "bin": {
+    "keep-codex-fast": "bin/keep-codex-fast.js"
+  },
+  "files": [
+    "bin/",
+    "skills/",
+    "!skills/**/__pycache__/**",
+    "!skills/**/*.pyc",
+    "templates/",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "test": "node --test",
+    "check": "node --check bin/keep-codex-fast.js && python3 -m py_compile skills/keep-codex-fast/scripts/codex_fast_maintenance.py",
+    "pack:dry": "npm pack --dry-run"
+  },
+  "keywords": [
+    "codex",
+    "openai-codex",
+    "agent-skills",
+    "skills",
+    "automation",
+    "maintenance"
+  ],
+  "author": "Tony",
+  "license": "MIT",
+  "homepage": "https://github.com/k0nkupa/keep-codex-fast#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/k0nkupa/keep-codex-fast.git"
+  },
+  "bugs": {
+    "url": "https://github.com/k0nkupa/keep-codex-fast/issues"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "engines": {
+    "node": ">=18",
+    "python": ">=3.11"
+  }
+}

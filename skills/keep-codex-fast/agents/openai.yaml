@@ -1,0 +1,4 @@
+interface:
+  display_name: "Keep Codex Fast"
+  short_description: "Audit and safely clean local Codex sessions, logs, config, and worktrees"
+  default_prompt: "Run a Codex fast-maintenance audit. If cleanup is requested, back up first, skip mutation while Codex is running, then report exactly what changed."
