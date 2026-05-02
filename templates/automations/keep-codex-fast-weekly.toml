@@ -2,7 +2,7 @@ version = 1
 id = "keep-codex-fast-weekly"
 kind = "cron"
 name = "Keep Codex Fast Weekly"
-prompt = "Run weekly Codex fast-maintenance using the local script at `{{SCRIPT_PATH}}`.\n\nCommand:\n`python3 {{SCRIPT_PATH}} --apply --days 10 --worktree-days 14 --log-max-mb 250`\n\nThe script must back up before mutation and must refuse cleanup automatically if Codex appears to be running. Do not kill background processes or delete files. Do not pass `--archive-git-worktrees` in the weekly automation; git worktrees should be reported/skipped unless explicitly handled manually. In the final result, report the generated maintenance report path, whether it ran in audit or apply mode, active/archived thread counts, stale session count, stale worktree count, config parse status, database integrity status, and any skipped work."
+prompt = "Run weekly Codex fast-maintenance using the installed CLI.\n\nCommand:\n`keep-codex-fast apply --days 10 --worktree-days 14 --log-max-mb 250`\n\nThe CLI/script must back up before mutation and must refuse cleanup automatically if Codex appears to be running. Do not kill background processes or delete files. Do not pass `--archive-git-worktrees` in the weekly automation; git worktrees should be reported/skipped unless explicitly handled manually. In the final result, report the generated maintenance report path, whether it ran in audit or apply mode, active/archived thread counts, stale session count, stale worktree count, config parse status, database integrity status, and any skipped work."
 status = "ACTIVE"
 rrule = "RRULE:FREQ=WEEKLY;BYHOUR=10;BYMINUTE=0;BYDAY=SU"
 model = "gpt-5.3-codex"

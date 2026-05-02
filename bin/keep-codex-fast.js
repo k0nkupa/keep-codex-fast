@@ -107,16 +107,10 @@ async function copyDirAtomic(source, destination, dryRun) {
   return { backup: backupPath };
 }
 
-function tomlSafePath(target) {
-  return target.split(path.sep).join("/");
-}
-
-async function installAutomation(codexHome, scriptPath, dryRun) {
+async function installAutomation(codexHome, dryRun) {
   const templatePath = path.join(packageRoot, "templates", "automations", "keep-codex-fast-weekly.toml");
   const destination = path.join(codexHome, "automations", "keep-codex-fast-weekly", "automation.toml");
-  const rendered = (await fsp.readFile(templatePath, "utf8"))
-    .replaceAll("{{SCRIPT_PATH}}", tomlSafePath(scriptPath))
-    .replaceAll("{{TIMESTAMP_MS}}", String(Date.now()));
+  const rendered = (await fsp.readFile(templatePath, "utf8")).replaceAll("{{TIMESTAMP_MS}}", String(Date.now()));
 
   if (dryRun) {
     console.log(`[dry-run] install automation ${destination}`);
@@ -159,7 +153,7 @@ async function setup(rawArgs) {
 
   let automation = null;
   if (!options.noAutomation) {
-    automation = await installAutomation(options.codexHome, scriptPath, options.dryRun);
+    automation = await installAutomation(options.codexHome, options.dryRun);
   }
 
   console.log(`Codex home: ${options.codexHome}`);

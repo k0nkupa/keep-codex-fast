@@ -33,7 +33,7 @@ test("setup installs skill and automation into a custom Codex home", () => {
 
   const automationPath = path.join(temp, "automations", "keep-codex-fast-weekly", "automation.toml");
   assert.ok(fs.existsSync(automationPath));
-  assert.match(fs.readFileSync(automationPath, "utf8"), /codex_fast_maintenance\.py --apply --days 10/);
+  assert.match(fs.readFileSync(automationPath, "utf8"), /keep-codex-fast apply --days 10/);
 });
 
 test("doctor reports installation state", () => {
